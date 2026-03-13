@@ -1,0 +1,15 @@
+---
+layout: default
+---
+{{ content }}
+
+<h2>📝 最新文章</h2>
+<ul class="post-list">
+{% for post in site.posts %}
+  <li>
+    <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+    <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+  </li>
+{% endfor %}
+</ul>

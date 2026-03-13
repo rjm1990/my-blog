@@ -1,0 +1,22 @@
+title: 程序员的生活笔记
+description: 一个程序员对技术、健康、美食和生活的思考
+author: rjm1990
+url: "https://rjm1990.github.io"
+baseurl: "/my-blog"
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+
+show_excerpts: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "rjm1990"

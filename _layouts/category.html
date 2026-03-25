@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+<div class="category-header">
+  <h1>📁 {{ page.category_name }}</h1>
+  <p><a href="{{ site.baseurl }}/categories">← 返回所有分类</a></p>
+</div>
+
+<ul class="post-list">
+{% for post in site.categories[page.category_slug] %}
+  <li>
+    <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+    <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+    {% if post.tags %}
+    <div class="post-tags">
+      {% for tag in post.tags %}
+      <span class="tag">#{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </li>
+{% endfor %}
+</ul>
+
+<style>
+.category-header {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 1rem;
+}
+.category-header h1 {
+  margin-bottom: 0.5rem;
+}
+.category-header a {
+  color: #666;
+  text-decoration: none;
+}
+.category-header a:hover {
+  color: #333;
+}
+.post-tags {
+  margin-top: 0.5rem;
+}
+.tag {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #666;
+  padding: 2px 8px;
+  margin-right: 5px;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+</style>

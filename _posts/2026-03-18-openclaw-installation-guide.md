@@ -303,12 +303,12 @@ openclaw gateway start
 error openclaw@x.x.x: The engine "node" is incompatible
 ```
 
-**解决方案：** 升级 Node.js 到 v18 或更高版本：
+**解决方案：** 升级 Node.js 到 v22 或更高版本：
 
 ```bash
 # 使用 nvm
-nvm install 20
-nvm use 20
+nvm install 22
+nvm use 22
 ```
 
 ### 问题 5：npm 缓存问题

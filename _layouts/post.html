@@ -5,8 +5,22 @@ layout: default
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
     <p class="post-meta">
-      {{ page.date | date: "%Y年%m月%d日" }} • {{ page.categories | join: ", " }}
+      {{ page.date | date: "%Y年%m月%d日" }}
+      {% if page.categories %}
+        •
+        {% for category in page.categories %}
+          <a href="{{ site.baseurl }}/categories#{{ category | slugify }}" class="category-link">📁 {{ category }}</a>
+          {% unless forloop.last %} • {% endunless %}
+        {% endfor %}
+      {% endif %}
     </p>
+    {% if page.tags %}
+    <div class="post-tags-header">
+      {% for tag in page.tags %}
+      <span class="tag">#{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
   </header>
   <div class="post-content">
     {{ content }}
